@@ -7,347 +7,1795 @@
   <meta name="description" content="Professional training courses, certifications and corporate learning solutions worldwide.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- RESET & VARIABLES ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy: #071A2F;
+      --navy-2: #0E3154;
+      --blue: #1677FF;
+      --cyan: #45D7E6;
+      --bg: #F5F7F9;
+      --white: #FFFFFF;
+      --ink: #172536;
+      --muted: #6B7A8C;
+      --line: #E2E8F0;
+      --shadow-sm: 0 8px 20px rgba(7, 26, 47, 0.06);
+      --shadow-md: 0 18px 40px rgba(7, 26, 47, 0.08);
+      --shadow-lg: 0 30px 60px rgba(7, 26, 47, 0.12);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .h1, .h2, .h3 {
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1280px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* ----- UTILITY ----- */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #9fb0c5;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow span {
+      width: 24px;
+      height: 2px;
+      background: var(--cyan);
+      display: block;
+    }
+
+    .eyebrow.dark {
+      color: #718095;
+    }
+
+    .eyebrow.dark span {
+      background: var(--blue);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      border: 1px solid transparent;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #0f62d6;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(22, 119, 255, 0.3);
+    }
+
+    .btn-outline-light {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #fff;
+    }
+
+    .btn-dark {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .btn-dark:hover {
+      background: var(--navy-2);
+      transform: translateY(-2px);
+    }
+
+    .text-link {
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .text-link:hover {
+      gap: 12px;
+    }
+
+    /* ----- HEADER ----- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(7, 26, 47, 0.06);
+      transition: box-shadow 0.3s;
+    }
+
+    .site-header.scrolled {
+      box-shadow: 0 4px 20px rgba(7, 26, 47, 0.08);
+    }
+
+    .topbar {
+      background: var(--navy);
+      color: #b9c6d5;
+      font-size: 12px;
+    }
+
+    .topbar-inner {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .top-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .top-links a:hover {
+      color: #fff;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+      color: var(--navy);
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: var(--blue);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-cta {
+      background: var(--navy);
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .nav-cta:hover {
+      background: var(--blue) !important;
+      color: #fff !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: none;
+      font-size: 26px;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    /* ----- HERO (redesigned with image + floating stat card) ----- */
+    .hero {
+      position: relative;
+      background: var(--navy);
+      color: #fff;
+      overflow: hidden;
+      padding: 70px 0 80px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -15%;
+      top: -20%;
+      width: 70%;
+      height: 140%;
+      background: radial-gradient(circle at 30% 40%, rgba(22, 119, 255, 0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-copy h1 em {
+      font-style: normal;
+      color: var(--blue);
+    }
+
+    .hero-copy p {
+      font-size: 1.1rem;
+      color: #b9c6d5;
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      color: #fff;
+    }
+
+    .hero-stats .stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-stats .stat strong {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .hero-stats .stat span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #8799ae;
+      font-weight: 600;
+    }
+
+    /* Hero image block */
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-image-main {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 4/3;
+      background: #1a2e45;
+      position: relative;
+    }
+
+    .hero-image-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+      transition: transform 0.5s ease;
+    }
+
+    .hero-image-main:hover img {
+      transform: scale(1.03);
+    }
+
+    .floating-stat-card {
+      position: absolute;
+      bottom: -24px;
+      left: -30px;
+      background: #fff;
+      color: var(--ink);
+      padding: 20px 24px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      z-index: 5;
+    }
+
+    .floating-stat-card .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .floating-stat-card .stat-item strong {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .floating-stat-card .stat-item span {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* ----- SEARCH BAR (refined) ----- */
+    .search-section {
+      background: #fff;
+      padding: 0 0 50px;
+      margin-top: -30px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .search-container {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      padding: 28px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: flex-end;
+    }
+
+    .search-container .search-field {
+      flex: 1 1 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .search-container .search-field label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+    }
+
+    .search-container .search-field select,
+    .search-container .search-field input {
+      height: 50px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0 16px;
+      background: #fafbfc;
+      color: var(--ink);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .search-container .search-field select:focus,
+    .search-container .search-field input:focus {
+      border-color: var(--blue);
+      background: #fff;
+    }
+
+    .search-container .btn {
+      height: 50px;
+      padding: 0 36px;
+      flex-shrink: 0;
+    }
+
+    /* ----- CATEGORY SECTION (chips / cards) ----- */
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      max-width: 700px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .category-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      min-height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: #c9d8eb;
+    }
+
+    .category-card .icon {
+      font-size: 1.8rem;
+      color: var(--blue);
+      margin-bottom: 24px;
+    }
+
+    .category-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .category-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .category-card .arrow {
+      color: var(--blue);
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+    }
+
+    .category-card:hover .arrow {
+      transform: translateX(6px);
+    }
+
+    /* ----- FEATURED COURSES (with real images) ----- */
+    .courses-section {
+      background: var(--bg);
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .course-card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: transparent;
+    }
+
+    .course-image {
+      height: 190px;
+      position: relative;
+      overflow: hidden;
+      background: #1a2e45;
+    }
+
+    .course-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .course-card:hover .course-image img {
+      transform: scale(1.06);
+    }
+
+    .course-image .badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--blue);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .course-image .badge.new {
+      background: #10b981;
+    }
+
+    .course-body {
+      padding: 22px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .course-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 12px;
+    }
+
+    .course-body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 10px;
+      min-height: 2.6em;
+    }
+
+    .course-body p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .course-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .course-tags span {
+      background: #eef4fb;
+      color: #2c5778;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .course-body .text-link {
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    /* ----- WHY GLOMACS (new section) ----- */
+    .why-section {
+      background: #fff;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+    }
+
+    .why-card {
+      text-align: left;
+      padding: 28px 20px;
+      border-radius: var(--radius);
+      background: var(--bg);
+      transition: all 0.3s ease;
+    }
+
+    .why-card:hover {
+      background: #fff;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+
+    .why-card .number {
+      font-family: "Manrope", sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--blue);
+      opacity: 0.5;
+      margin-bottom: 12px;
+    }
+
+    .why-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ----- INSTRUCTORS (new) ----- */
+    .instructors-section {
+      background: var(--bg);
+    }
+
+    .instructor-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .instructor-card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      transition: all 0.3s ease;
+      text-align: center;
+      padding-bottom: 24px;
+    }
+
+    .instructor-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .instructor-card .photo {
+      height: 200px;
+      background: #d9e2ec;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .instructor-card .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .instructor-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .instructor-card .specialty {
+      font-size: 0.8rem;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .instructor-card .bio {
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 0 18px;
+      line-height: 1.5;
+    }
+
+    /* ----- GLOBAL LOCATIONS (improved map) ----- */
+    .world-section {
+      background: var(--navy);
+      color: #fff;
+      padding: 100px 0;
+      overflow: hidden;
+    }
+
+    .world-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .world-copy h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .world-copy h2 em {
+      font-style: normal;
+      color: var(--blue);
+    }
+
+    .world-copy p {
+      color: #aebdcc;
+      font-size: 1rem;
+      max-width: 480px;
+      margin-bottom: 30px;
+    }
+
+    .location-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .location-tags span {
+      border: 1px solid #29405a;
+      color: #c4d0dd;
+      border-radius: 30px;
+      padding: 8px 16px;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+
+    .location-tags span:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+      cursor: default;
+    }
+
+    .world-map-visual {
+      position: relative;
+      height: 380px;
+      background: radial-gradient(ellipse at center, rgba(22, 119, 255, 0.12), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .map-dot {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: var(--blue);
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(22, 119, 255, 0.15);
+      transition: all 0.3s;
+      cursor: default;
+    }
+
+    .map-dot::after {
+      content: attr(data-label);
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      color: var(--navy);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .map-dot:hover::after {
+      opacity: 1;
+    }
+
+    .map-dot.pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(22, 119, 255, 0.4); }
+      70% { box-shadow: 0 0 0 14px rgba(22, 119, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(22, 119, 255, 0); }
+    }
+
+    /* ----- CERTIFICATIONS ----- */
+    .cert-section {
+      background: #f5f7f9;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .cert-copy h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .cert-copy p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 24px;
+    }
+
+    .cert-logos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .cert-logos div {
+      height: 100px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #8b9aab;
+      transition: all 0.3s;
+    }
+
+    .cert-logos div:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ----- CORPORATE TRAINING (new) ----- */
+    .corporate-section {
+      background: #fff;
+      padding: 80px 0;
+    }
+
+    .corporate-inner {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+      border-radius: 24px;
+      padding: 60px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      color: #fff;
+    }
+
+    .corporate-copy h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .corporate-copy p {
+      color: #b9c6d5;
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+
+    .corporate-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .corporate-features li {
+      list-style: none;
+      color: #d0dae5;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .corporate-features li::before {
+      content: "✓";
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    /* ----- FINAL CTA ----- */
+    .cta-section {
+      background: linear-gradient(120deg, #0b2340, #0b2d51);
+      padding: 80px 0;
+      color: #fff;
+    }
+
+    .cta-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .cta-inner h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: #fff;
+      max-width: 700px;
+      letter-spacing: -0.03em;
+    }
+
+    .cta-inner p {
+      color: #aebdcc;
+      margin-top: 12px;
+      font-size: 1rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ----- FOOTER ----- */
+    .footer {
+      background: #04111f;
+      color: #8292a5;
+      padding: 70px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 50px;
+    }
+
+    .footer .logo {
+      color: #fff;
+    }
+
+    .footer-brand p {
+      max-width: 300px;
+      font-size: 0.85rem;
+      margin-top: 18px;
+      line-height: 1.6;
+    }
+
+    .footer h4 {
+      color: #fff;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .footer-grid > div:not(.footer-brand) a {
+      display: block;
+      font-size: 0.85rem;
+      margin: 10px 0;
+      transition: color 0.2s;
+    }
+
+    .footer-grid a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #182838;
+      margin-top: 50px;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 1100px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-visual {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .floating-stat-card {
+        left: 0;
+      }
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .why-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .instructor-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .world-grid {
+        grid-template-columns: 1fr;
+      }
+      .world-map-visual {
+        height: 300px;
+      }
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+      .corporate-inner {
+        grid-template-columns: 1fr;
+        padding: 40px 32px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: min(100% - 30px, 1280px);
+      }
+      .topbar {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
+        border-bottom: 1px solid var(--line);
+        align-items: stretch;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-cta {
+        text-align: center;
+      }
+
+      .hero {
+        padding: 50px 0 60px;
+      }
+      .hero-stats {
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+      .floating-stat-card {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: 24px;
+        justify-content: center;
+      }
+
+      .search-container {
+        flex-direction: column;
+        padding: 24px;
+      }
+      .search-container .btn {
+        width: 100%;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+      .course-grid {
+        grid-template-columns: 1fr;
+      }
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .instructor-grid {
+        grid-template-columns: 1fr;
+      }
+      .cert-logos {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .cta-actions {
+        width: 100%;
+      }
+      .cta-actions .btn {
+        flex: 1;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+      .corporate-features {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <span>Professional Training • Global Learning • Measurable Impact</span>
-      <div class="top-links">
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span>Professional Training • Global Learning • Measurable Impact</span>
+        <div class="top-links">
+          <a href="#contact">Contact</a>
+          <a href="#courses">Training Calendar</a>
+          <a href="#venues">Global Venues</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar container">
+      <a class="logo" href="#">
+        <span class="logo-mark">G</span>
+        <span>GLOMACS</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#courses">Courses</a>
+        <a href="#categories">Categories</a>
+        <a href="#venues">Venues</a>
+        <a href="#certificates">Certifications</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="#courses">Training Calendar</a>
-        <a href="#venues">Global Venues</a>
+        <a class="nav-cta" href="#find-training">Find Training</a>
       </div>
-    </div>
-  </div>
+    </nav>
+  </header>
 
-  <nav class="navbar container">
-    <a class="logo" href="#">
-      <span class="logo-mark">G</span>
-      <span>GLOMACS</span>
-    </a>
+  <main>
+    <!-- HERO (redesigned with image + floating stat card) -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span></span> GLOBAL PROFESSIONAL DEVELOPMENT</div>
+          <h1>Professional Training That Creates <em>Real-World Impact.</em></h1>
+          <p>Build the skills that move your career forward with practical, internationally recognised training programmes.</p>
 
-    <button class="menu-toggle" aria-label="Open menu">☰</button>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#courses">Explore Courses →</a>
+            <a class="btn btn-outline-light" href="#find-training">Find My Training</a>
+          </div>
 
-    <div class="nav-links">
-      <a href="#courses">Courses</a>
-      <a href="#categories">Categories</a>
-      <a href="#venues">Venues</a>
-      <a href="#certificates">Certifications</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a class="nav-cta" href="#find-training">Find Training</a>
-    </div>
-  </nav>
-</header>
-
-<main>
-  <section class="hero">
-    <div class="hero-glow"></div>
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow"><span></span> GLOBAL PROFESSIONAL DEVELOPMENT</div>
-        <h1>Build the skills that move your <em>career forward.</em></h1>
-        <p>Explore professional training, certifications and practical learning experiences designed for ambitious people and organisations.</p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#courses">Explore Courses <span>→</span></a>
-          <a class="btn btn-ghost" href="#find-training">Find My Training</a>
+          <div class="hero-stats">
+            <div class="stat"><strong>1,000+</strong><span>Training Courses</span></div>
+            <div class="stat"><strong>50+</strong><span>Global Locations</span></div>
+            <div class="stat"><strong>30+</strong><span>Years Experience</span></div>
+          </div>
         </div>
 
-        <div class="hero-proof">
-          <div><strong>1,000+</strong><span>Training Courses</span></div>
-          <div><strong>50+</strong><span>Global Locations</span></div>
-          <div><strong>30+</strong><span>Years Experience</span></div>
+        <div class="hero-visual">
+          <div class="hero-image-main">
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Corporate training workshop with instructor presenting">
+          </div>
+          <div class="floating-stat-card">
+            <div class="stat-item">
+              <strong>1,000+</strong>
+              <span>Courses</span>
+            </div>
+            <div class="stat-item">
+              <strong>50+</strong>
+              <span>Global Locations</span>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="hero-panel">
-        <div class="panel-label">COURSE FINDER</div>
-        <h3>What do you want to learn?</h3>
-        <p>Search our professional training portfolio.</p>
-        <div class="search-box">
-          <input id="heroSearch" type="text" placeholder="e.g. Leadership, AI, Finance...">
-          <button onclick="searchCourses()">⌕</button>
-        </div>
-        <div class="popular">
-          <span>Popular:</span>
-          <button onclick="fillSearch('Leadership')">Leadership</button>
-          <button onclick="fillSearch('Artificial Intelligence')">AI</button>
-          <button onclick="fillSearch('Finance')">Finance</button>
-          <button onclick="fillSearch('Project Management')">Project Management</button>
+    <!-- SEARCH BAR (refined) -->
+    <section class="search-section" id="find-training">
+      <div class="container">
+        <div class="search-container">
+          <div class="search-field">
+            <label>What would you like to learn?</label>
+            <input type="text" id="searchInput" placeholder="Search courses, skills or topics...">
+          </div>
+          <div class="search-field">
+            <label>Category</label>
+            <select id="searchCategory">
+              <option value="">All Categories</option>
+              <option>Leadership & Strategy</option>
+              <option>AI & Technology</option>
+              <option>Finance</option>
+              <option>Project Management</option>
+              <option>Human Resources</option>
+              <option>Engineering & Technical</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label>Location</label>
+            <select id="searchLocation">
+              <option value="">Any Location</option>
+              <option>London</option>
+              <option>Dubai</option>
+              <option>Paris</option>
+              <option>Singapore</option>
+              <option>Nairobi</option>
+              <option>Cape Town</option>
+              <option>New York</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label>Format</label>
+            <select id="searchFormat">
+              <option value="">Any Format</option>
+              <option>Classroom</option>
+              <option>Online</option>
+              <option>In-House</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" onclick="searchCourses()">Search Courses →</button>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="trust-strip">
-    <div class="container trust-inner">
-      <span>Trusted professional development across</span>
-      <div class="trust-items">
-        <b>AFRICA</b><b>EUROPE</b><b>ASIA</b><b>MIDDLE EAST</b><b>NORTH AMERICA</b>
+    <!-- POPULAR CATEGORIES -->
+    <section class="section" id="categories">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow dark"><span></span> LEARNING PORTFOLIO</div>
+            <h2>Popular Training <em>Categories</em></h2>
+          </div>
+          <a class="text-link" href="#courses">View all categories →</a>
+        </div>
+
+        <div class="category-grid">
+          <a class="category-card" href="#courses">
+            <div class="icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+              <h3>Leadership & Strategy</h3>
+              <p>Strategy, executive development, governance and influencing.</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+          <a class="category-card" href="#courses">
+            <div class="icon"><i class="fas fa-robot"></i></div>
+            <div>
+              <h3>AI, Data & Technology</h3>
+              <p>Artificial intelligence, analytics, digital transformation and cybersecurity.</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+          <a class="category-card" href="#courses">
+            <div class="icon"><i class="fas fa-users"></i></div>
+            <div>
+              <h3>People & HR</h3>
+              <p>Talent, learning, behavioural skills and personal effectiveness.</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+          <a class="category-card" href="#courses">
+            <div class="icon"><i class="fas fa-cogs"></i></div>
+            <div>
+              <h3>Operations & Quality</h3>
+              <p>Operational excellence, quality, auditing and process improvement.</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+          <a class="category-card" href="#courses">
+            <div class="icon"><i class="fas fa-bullhorn"></i></div>
+            <div>
+              <h3>Sales & Communication</h3>
+              <p>Sales, marketing, customer service and corporate communication.</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+          <a class="category-card" href="#courses">
+            <div class="icon"><i class="fas fa-hard-hat"></i></div>
+            <div>
+              <h3>Engineering & Technical</h3>
+              <p>Engineering, maintenance, oil & gas and process control.</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+          <a class="category-card" href="#courses">
+            <div class="icon"><i class="fas fa-shield-alt"></i></div>
+            <div>
+              <h3>HSE & Security</h3>
+              <p>Health, safety, emergency, security and sustainability.</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+          <a class="category-card" href="#courses">
+            <div class="icon"><i class="fas fa-certificate"></i></div>
+            <div>
+              <h3>Professional Certificates</h3>
+              <p>Recognised pathways to strengthen your professional credentials.</p>
+            </div>
+            <span class="arrow">→</span>
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="categories">
-    <div class="container">
-      <div class="section-head">
+    <!-- FEATURED COURSES (with real images) -->
+    <section class="section courses-section" id="courses">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow dark"><span></span> FEATURED PROGRAMMES</div>
+            <h2>Training built for <em>real-world impact.</em></h2>
+          </div>
+          <a class="text-link" href="#courses">View all courses →</a>
+        </div>
+
+        <div class="course-grid" id="courseGrid">
+          <article class="course-card" data-title="Artificial Intelligence Driven Talent Management" data-category="AI & Technology" data-location="London">
+            <div class="course-image">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AI in talent management">
+              <span class="badge new">New</span>
+            </div>
+            <div class="course-body">
+              <div class="course-meta"><span>09–13 NOV 2026</span><span>London</span></div>
+              <h3>Artificial Intelligence Driven Talent Management</h3>
+              <p>Learn how AI can reshape workforce planning, talent decisions and HR strategy.</p>
+              <div class="course-tags">
+                <span>CPD Certified</span>
+                <span>5 Days</span>
+                <span>Classroom</span>
+              </div>
+              <a href="#contact" class="text-link">View Programme →</a>
+            </div>
+          </article>
+
+          <article class="course-card" data-title="Strategic Planning Competitive Analysis Supply Chain" data-category="Leadership & Strategy" data-location="London">
+            <div class="course-image">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Strategic planning meeting">
+              <span class="badge">Popular</span>
+            </div>
+            <div class="course-body">
+              <div class="course-meta"><span>12–16 OCT 2026</span><span>London</span></div>
+              <h3>Strategic Planning & Competitive Analysis for Supply Chain</h3>
+              <p>Build practical strategic thinking for complex supply chain environments.</p>
+              <div class="course-tags">
+                <span>CPD Certified</span>
+                <span>5 Days</span>
+                <span>Classroom</span>
+              </div>
+              <a href="#contact" class="text-link">View Programme →</a>
+            </div>
+          </article>
+
+          <article class="course-card" data-title="Certified Logistics Professional" data-category="Operations & Quality" data-location="London">
+            <div class="course-image">
+              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Logistics professional">
+            </div>
+            <div class="course-body">
+              <div class="course-meta"><span>12–16 OCT 2026</span><span>London</span></div>
+              <h3>Certified Logistics Professional</h3>
+              <p>Strengthen logistics knowledge, planning capability and operational decision-making.</p>
+              <div class="course-tags">
+                <span>CPD Certified</span>
+                <span>5 Days</span>
+                <span>Classroom</span>
+              </div>
+              <a href="#contact" class="text-link">View Programme →</a>
+            </div>
+          </article>
+
+          <article class="course-card" data-title="Process Safety Management" data-category="HSE & Security" data-location="Nairobi">
+            <div class="course-image">
+              <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Process safety management">
+            </div>
+            <div class="course-body">
+              <div class="course-meta"><span>02–06 NOV 2026</span><span>Nairobi</span></div>
+              <h3>Process Safety Management</h3>
+              <p>Develop stronger process safety systems, risk controls and operational practices.</p>
+              <div class="course-tags">
+                <span>CPD Certified</span>
+                <span>5 Days</span>
+                <span>Classroom</span>
+              </div>
+              <a href="#contact" class="text-link">View Programme →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY GLOMACS (new section) -->
+    <section class="section why-section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow dark"><span></span> WHY GLOMACS</div>
+            <h2>Why professionals <em>choose us.</em></h2>
+          </div>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="number">01</div>
+            <h3>Practical Learning</h3>
+            <p>Training designed around real workplace challenges and actionable outcomes.</p>
+          </div>
+          <div class="why-card">
+            <div class="number">02</div>
+            <h3>Global Expertise</h3>
+            <p>International instructors and business perspectives from across industries.</p>
+          </div>
+          <div class="why-card">
+            <div class="number">03</div>
+            <h3>Flexible Delivery</h3>
+            <p>Classroom, online and customised in-house programmes to suit your needs.</p>
+          </div>
+          <div class="why-card">
+            <div class="number">04</div>
+            <h3>Professional Recognition</h3>
+            <p>Certification and continuing professional development opportunities.</p>
+          </div>
+          <div class="why-card">
+            <div class="number">05</div>
+            <h3>Global Locations</h3>
+            <p>Training available across major business destinations worldwide.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEET OUR INSTRUCTORS (new) -->
+    <section class="section instructors-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow dark"><span></span> EXPERT TRAINERS</div>
+            <h2>Learn from experienced <em>practitioners.</em></h2>
+          </div>
+          <a class="text-link" href="#contact">Meet our trainers →</a>
+        </div>
+
+        <div class="instructor-grid">
+          <div class="instructor-card">
+            <div class="photo">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Sarah Mitchell">
+            </div>
+            <h3>Dr. Sarah Mitchell</h3>
+            <div class="specialty">Leadership & Strategy</div>
+            <p class="bio">20+ years of executive coaching and strategic leadership development.</p>
+          </div>
+          <div class="instructor-card">
+            <div class="photo">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="James Okonkwo">
+            </div>
+            <h3>James Okonkwo</h3>
+            <div class="specialty">AI & Technology</div>
+            <p class="bio">Former CTO with deep expertise in AI, data strategy and digital transformation.</p>
+          </div>
+          <div class="instructor-card">
+            <div class="photo">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Elena Rossi">
+            </div>
+            <h3>Dr. Elena Rossi</h3>
+            <div class="specialty">Finance & Risk</div>
+            <p class="bio">International finance expert with 15 years of corporate training experience.</p>
+          </div>
+          <div class="instructor-card">
+            <div class="photo">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Michael Chen">
+            </div>
+            <h3>Michael Chen</h3>
+            <div class="specialty">Engineering & HSE</div>
+            <p class="bio">Chartered engineer specialising in process safety and operational excellence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOBAL LOCATIONS (improved map) -->
+    <section class="world-section" id="venues">
+      <div class="container world-grid">
+        <div class="world-copy">
+          <div class="eyebrow"><span></span> GLOBAL REACH</div>
+          <h2>Learn wherever your business <em>takes you.</em></h2>
+          <p>Our international training network gives professionals access to learning opportunities across major business destinations.</p>
+          <div class="location-tags">
+            <span>London</span><span>Dubai</span><span>Paris</span><span>Singapore</span>
+            <span>Nairobi</span><span>Cape Town</span><span>Johannesburg</span><span>New York</span>
+          </div>
+          <a class="btn btn-primary" href="#contact">Explore global venues →</a>
+        </div>
+        <div class="world-map-visual">
+          <div class="map-dot pulse" style="top: 30%; left: 42%;" data-label="London"></div>
+          <div class="map-dot pulse" style="top: 48%; left: 58%;" data-label="Dubai"></div>
+          <div class="map-dot" style="top: 62%; left: 78%;" data-label="Singapore"></div>
+          <div class="map-dot" style="top: 72%; left: 48%;" data-label="Nairobi"></div>
+          <div class="map-dot" style="top: 80%; left: 38%;" data-label="Cape Town"></div>
+          <div class="map-dot" style="top: 35%; left: 68%;" data-label="Paris"></div>
+          <div class="map-dot" style="top: 38%; left: 22%;" data-label="New York"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section cert-section" id="certificates">
+      <div class="container cert-grid">
+        <div class="cert-copy">
+          <div class="eyebrow dark"><span></span> PROFESSIONAL CREDENTIALS</div>
+          <h2>Turn learning into <em>recognised achievement.</em></h2>
+          <p>Selected programmes can support professional development through recognised certification and continuing education pathways.</p>
+          <a class="text-link" href="#contact">Explore certification options →</a>
+        </div>
+        <div class="cert-logos">
+          <div>CPD</div>
+          <div>ILM</div>
+          <div>PMI</div>
+          <div>HRCI</div>
+          <div>ISO<br><small style="font-size:0.6rem;letter-spacing:1px;">9001</small></div>
+          <div>NASBA</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORPORATE TRAINING (new) -->
+    <section class="corporate-section">
+      <div class="container">
+        <div class="corporate-inner">
+          <div class="corporate-copy">
+            <div class="eyebrow"><span></span> FOR ORGANISATIONS</div>
+            <h2>Training for <em>organisations.</em></h2>
+            <p>Build capability across your entire team with customised programmes designed around your organisation's objectives.</p>
+            <a class="btn btn-primary" href="#contact">Talk to a Training Consultant →</a>
+          </div>
+          <ul class="corporate-features">
+            <li>Customised Training</li>
+            <li>On-Site Training</li>
+            <li>Team Development</li>
+            <li>Leadership Programmes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-section" id="contact">
+      <div class="container cta-inner">
         <div>
-          <div class="eyebrow dark"><span></span> LEARNING PORTFOLIO</div>
-          <h2>Find your area of <em>expertise.</em></h2>
+          <div class="eyebrow"><span></span> READY TO START?</div>
+          <h2>Your next level starts with the <em>right training.</em></h2>
+          <p>Find a course for yourself or speak to our team about a customised programme for your organisation.</p>
         </div>
-        <a class="text-link" href="#courses">View all categories →</a>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="#courses">Explore Courses →</a>
+          <a class="btn btn-outline-light" href="mailto:info@glomacs.com">Talk to an Expert</a>
+        </div>
       </div>
+    </section>
+  </main>
 
-      <div class="category-grid">
-        <a class="category-card featured" href="#courses">
-          <span class="icon">↗</span>
-          <div><h3>Leadership & Strategy</h3><p>Strategy, executive development, governance and influencing.</p></div>
-          <span class="arrow">→</span>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#" style="color:#fff;">
+          <span class="logo-mark">G</span>
+          <span>GLOMACS</span>
         </a>
-        <a class="category-card" href="#courses">
-          <span class="icon">AI</span>
-          <div><h3>AI, Data & Technology</h3><p>Artificial intelligence, analytics, digital transformation and cybersecurity.</p></div>
-          <span class="arrow">→</span>
-        </a>
-        <a class="category-card" href="#courses">
-          <span class="icon">HR</span>
-          <div><h3>People & HR</h3><p>Talent, learning, behavioural skills and personal effectiveness.</p></div>
-          <span class="arrow">→</span>
-        </a>
-        <a class="category-card" href="#courses">
-          <span class="icon">OPS</span>
-          <div><h3>Operations & Quality</h3><p>Operational excellence, quality, auditing and process improvement.</p></div>
-          <span class="arrow">→</span>
-        </a>
-        <a class="category-card" href="#courses">
-          <span class="icon">SALES</span>
-          <div><h3>Sales & Communication</h3><p>Sales, marketing, customer service and corporate communication.</p></div>
-          <span class="arrow">→</span>
-        </a>
-        <a class="category-card" href="#courses">
-          <span class="icon">ENG</span>
-          <div><h3>Engineering & Technical</h3><p>Engineering, maintenance, oil & gas and process control.</p></div>
-          <span class="arrow">→</span>
-        </a>
-        <a class="category-card" href="#courses">
-          <span class="icon">HSE</span>
-          <div><h3>HSE & Security</h3><p>Health, safety, emergency, security and sustainability.</p></div>
-          <span class="arrow">→</span>
-        </a>
-        <a class="category-card" href="#courses">
-          <span class="icon">PRO</span>
-          <div><h3>Professional Certificates</h3><p>Recognised pathways to strengthen your professional credentials.</p></div>
-          <span class="arrow">→</span>
-        </a>
+        <p>Professional training and development for ambitious people and organisations worldwide.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="finder" id="find-training">
-    <div class="container finder-inner">
       <div>
-        <div class="eyebrow"><span></span> COURSE FINDER</div>
-        <h2>Not sure where to start?</h2>
-        <p>Tell us what you are looking for and we’ll help you identify the right training path.</p>
+        <h4>Training</h4>
+        <a href="#courses">All Courses</a>
+        <a href="#categories">Categories</a>
+        <a href="#venues">Venues</a>
+        <a href="#certificates">Certificates</a>
       </div>
-      <form class="finder-form" onsubmit="handleFinder(event)">
-        <select id="finderCategory">
-          <option value="">Select a category</option>
-          <option>Leadership & Strategy</option>
-          <option>AI & Technology</option>
-          <option>Finance</option>
-          <option>Project Management</option>
-          <option>Human Resources</option>
-          <option>Engineering & Technical</option>
-        </select>
-        <select>
-          <option>Select preferred format</option>
-          <option>Classroom</option>
-          <option>Online</option>
-          <option>In-House</option>
-        </select>
-        <button class="btn btn-light" type="submit">Find Courses →</button>
-      </form>
-    </div>
-  </section>
-
-  <section class="section courses-section" id="courses">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow dark"><span></span> FEATURED PROGRAMMES</div>
-          <h2>Training built for <em>real-world impact.</em></h2>
-        </div>
-        <a class="text-link" href="#courses">View all courses →</a>
-      </div>
-
-      <div class="course-grid" id="courseGrid">
-        <article class="course-card" data-title="Artificial Intelligence Driven Talent Management">
-          <div class="course-image image-ai"><span>AI</span><small>NEW</small></div>
-          <div class="course-body">
-            <div class="course-meta"><span>09–13 NOV 2026</span><span>London</span></div>
-            <h3>Artificial Intelligence Driven Talent Management</h3>
-            <p>Learn how AI can reshape workforce planning, talent decisions and HR strategy.</p>
-            <a href="#contact">View programme <span>→</span></a>
-          </div>
-        </article>
-
-        <article class="course-card" data-title="Strategic Planning Competitive Analysis Supply Chain">
-          <div class="course-image image-supply"><span>STRATEGY</span></div>
-          <div class="course-body">
-            <div class="course-meta"><span>12–16 OCT 2026</span><span>London</span></div>
-            <h3>Strategic Planning & Competitive Analysis for Supply Chain</h3>
-            <p>Build practical strategic thinking for complex supply chain environments.</p>
-            <a href="#contact">View programme <span>→</span></a>
-          </div>
-        </article>
-
-        <article class="course-card" data-title="Certified Logistics Professional">
-          <div class="course-image image-logistics"><span>LOGISTICS</span></div>
-          <div class="course-body">
-            <div class="course-meta"><span>12–16 OCT 2026</span><span>London</span></div>
-            <h3>Certified Logistics Professional</h3>
-            <p>Strengthen logistics knowledge, planning capability and operational decision-making.</p>
-            <a href="#contact">View programme <span>→</span></a>
-          </div>
-        </article>
-
-        <article class="course-card" data-title="Process Safety Management">
-          <div class="course-image image-safety"><span>HSE</span></div>
-          <div class="course-body">
-            <div class="course-meta"><span>02–06 NOV 2026</span><span>Nairobi</span></div>
-            <h3>Process Safety Management</h3>
-            <p>Develop stronger process safety systems, risk controls and operational practices.</p>
-            <a href="#contact">View programme <span>→</span></a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="formats section">
-    <div class="container">
-      <div class="section-head centered">
-        <div>
-          <div class="eyebrow dark"><span></span> FLEXIBLE LEARNING</div>
-          <h2>Choose how you want to <em>learn.</em></h2>
-          <p>Flexible training formats for individuals and organisations.</p>
-        </div>
-      </div>
-
-      <div class="format-grid">
-        <div class="format-card">
-          <div class="format-number">01</div>
-          <h3>Classroom Training</h3>
-          <p>Interactive face-to-face learning delivered in professional venues around the world.</p>
-          <a href="#venues">Explore venues →</a>
-        </div>
-        <div class="format-card active">
-          <div class="format-number">02</div>
-          <h3>Online Training</h3>
-          <p>Join instructor-led programmes remotely with a flexible digital learning experience.</p>
-          <a href="#courses">Explore online courses →</a>
-        </div>
-        <div class="format-card">
-          <div class="format-number">03</div>
-          <h3>In-House Solutions</h3>
-          <p>Customised programmes aligned with your organisation’s goals, people and challenges.</p>
-          <a href="#contact">Request a solution →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="world-section" id="venues">
-    <div class="container world-grid">
-      <div class="world-copy">
-        <div class="eyebrow"><span></span> GLOBAL REACH</div>
-        <h2>Learn wherever your business <em>takes you.</em></h2>
-        <p>Our international training network gives professionals access to learning opportunities across major business destinations in Africa, Europe, Asia, the Middle East and North America.</p>
-        <div class="location-tags">
-          <span>London</span><span>Dubai</span><span>Paris</span><span>Singapore</span>
-          <span>Nairobi</span><span>Cape Town</span><span>Pretoria</span><span>New York</span>
-        </div>
-        <a class="btn btn-primary" href="#venues">Explore global venues →</a>
-      </div>
-      <div class="world-map">
-        <div class="map-ring r1"></div><div class="map-ring r2"></div><div class="map-ring r3"></div>
-        <div class="map-point p1">London</div>
-        <div class="map-point p2">Dubai</div>
-        <div class="map-point p3">Singapore</div>
-        <div class="map-point p4">Cape Town</div>
-        <div class="map-point p5">New York</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cert-section section" id="certificates">
-    <div class="container cert-grid">
-      <div class="cert-copy">
-        <div class="eyebrow dark"><span></span> PROFESSIONAL CREDENTIALS</div>
-        <h2>Turn learning into <em>recognised achievement.</em></h2>
-        <p>Selected programmes can support professional development through recognised certification and continuing education pathways.</p>
-        <a class="text-link" href="#contact">Explore certification options →</a>
-      </div>
-      <div class="cert-logos">
-        <div>CPD</div><div>ILM</div><div>PMI</div><div>HRCI</div><div>ISO<br><small>9001</small></div><div>NASBA</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="about-section section" id="about">
-    <div class="container about-grid">
-      <div class="about-image">
-        <div class="about-badge"><strong>30+</strong><span>Years of professional<br>development</span></div>
-      </div>
-      <div class="about-copy">
-        <div class="eyebrow dark"><span></span> ABOUT GLOMACS</div>
-        <h2>Learning that connects <em>knowledge to action.</em></h2>
-        <p>GLOMACS provides professional development training for individuals and organisations seeking practical skills, stronger capability and measurable business impact.</p>
-        <p>Its portfolio spans leadership, business, finance, technology, engineering, safety, sustainability and other professional disciplines.</p>
-        <div class="about-stats">
-          <div><strong>1M+</strong><span>Professionals trained</span></div>
-          <div><strong>60+</strong><span>Subject areas</span></div>
-          <div><strong>50+</strong><span>Global cities</span></div>
-        </div>
-        <a class="btn btn-dark" href="#contact">Learn more about us →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section" id="contact">
-    <div class="container cta-inner">
       <div>
-        <div class="eyebrow"><span></span> READY TO START?</div>
-        <h2>Invest in skills that create <em>momentum.</em></h2>
-        <p>Find a programme for yourself or request a tailored solution for your organisation.</p>
+        <h4>Solutions</h4>
+        <a href="#courses">Online Training</a>
+        <a href="#courses">Classroom Training</a>
+        <a href="#contact">In-House Training</a>
+        <a href="#find-training">Find Training</a>
       </div>
-      <div class="cta-actions">
-        <a class="btn btn-light" href="#courses">Browse Courses →</a>
-        <a class="btn btn-outline-light" href="mailto:info@glomacs.com">Contact Us</a>
+      <div>
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact">Careers</a>
+        <a href="#contact">Resources</a>
       </div>
     </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <a class="logo light" href="#"><span class="logo-mark">G</span><span>GLOMACS</span></a>
-      <p>Professional training and development for ambitious people and organisations worldwide.</p>
+    <div class="container footer-bottom">
+      <span>© 2026 GLOMACS. All rights reserved.</span>
+      <span>Professional Development • Global Learning</span>
     </div>
-    <div><h4>Training</h4><a href="#courses">All Courses</a><a href="#categories">Categories</a><a href="#venues">Venues</a><a href="#certificates">Certificates</a></div>
-    <div><h4>Solutions</h4><a href="#courses">Online Training</a><a href="#courses">Classroom Training</a><a href="#contact">In-House Training</a><a href="#find-training">Find Training</a></div>
-    <div><h4>Company</h4><a href="#about">About Us</a><a href="#contact">Contact</a><a href="#contact">Careers</a><a href="#contact">Resources</a></div>
-  </div>
-  <div class="container footer-bottom"><span>© 2026 GLOMACS. All rights reserved.</span><span>Professional Development • Global Learning</span></div>
-</footer>
+  </footer>
 
-<script src="script.js"></script>
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle?.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Sticky header shadow on scroll
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Search courses functionality
+    function searchCourses() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const category = document.getElementById('searchCategory').value;
+      const location = document.getElementById('searchLocation').value;
+      const format = document.getElementById('searchFormat').value;
+
+      const cards = document.querySelectorAll('.course-card');
+      let found = 0;
+
+      cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const cardCategory = card.dataset.category || '';
+        const cardLocation = card.dataset.location || '';
+
+        const matchesQuery = !query || title.includes(query);
+        const matchesCategory = !category || cardCategory === category;
+        const matchesLocation = !location || cardLocation === location;
+        // Format matching is simplified — all courses are classroom for demo
+        const matchesFormat = !format || format === 'Classroom';
+
+        const visible = matchesQuery && matchesCategory && matchesLocation && matchesFormat;
+        card.style.display = visible ? '' : 'none';
+        if (visible) found++;
+      });
+
+      document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
+
+      if ((query || category || location || format) && found === 0) {
+        setTimeout(() => alert('No courses matched your criteria. Try adjusting your filters.'), 400);
+      }
+    }
+
+    // Allow pressing Enter in the search input
+    document.getElementById('searchInput')?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        searchCourses();
+      }
+    });
+
+    // Intersection Observer for fade-up animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Apply initial styles for animation targets
+    document.querySelectorAll('.category-card, .course-card, .why-card, .instructor-card, .cert-logos div').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+
+    // Hero image and stats animation on load
+    window.addEventListener('load', () => {
+      document.querySelector('.hero-image-main')?.style.setProperty('opacity', '1');
+    });
+  </script>
 </body>
 </html>
