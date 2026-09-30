@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLOMACS | Professional Training & Development</title>
+  <meta name="description" content="Professional training courses, certifications and corporate learning solutions worldwide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Professional Training • Global Learning • Measurable Impact</span>
+      <div class="top-links">
+        <a href="#contact">Contact</a>
+        <a href="#courses">Training Calendar</a>
+        <a href="#venues">Global Venues</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar container">
+    <a class="logo" href="#">
+      <span class="logo-mark">G</span>
+      <span>GLOMACS</span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+
+    <div class="nav-links">
+      <a href="#courses">Courses</a>
+      <a href="#categories">Categories</a>
+      <a href="#venues">Venues</a>
+      <a href="#certificates">Certifications</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="#find-training">Find Training</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> GLOBAL PROFESSIONAL DEVELOPMENT</div>
+        <h1>Build the skills that move your <em>career forward.</em></h1>
+        <p>Explore professional training, certifications and practical learning experiences designed for ambitious people and organisations.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#courses">Explore Courses <span>→</span></a>
+          <a class="btn btn-ghost" href="#find-training">Find My Training</a>
+        </div>
+
+        <div class="hero-proof">
+          <div><strong>1,000+</strong><span>Training Courses</span></div>
+          <div><strong>50+</strong><span>Global Locations</span></div>
+          <div><strong>30+</strong><span>Years Experience</span></div>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="panel-label">COURSE FINDER</div>
+        <h3>What do you want to learn?</h3>
+        <p>Search our professional training portfolio.</p>
+        <div class="search-box">
+          <input id="heroSearch" type="text" placeholder="e.g. Leadership, AI, Finance...">
+          <button onclick="searchCourses()">⌕</button>
+        </div>
+        <div class="popular">
+          <span>Popular:</span>
+          <button onclick="fillSearch('Leadership')">Leadership</button>
+          <button onclick="fillSearch('Artificial Intelligence')">AI</button>
+          <button onclick="fillSearch('Finance')">Finance</button>
+          <button onclick="fillSearch('Project Management')">Project Management</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip">
+    <div class="container trust-inner">
+      <span>Trusted professional development across</span>
+      <div class="trust-items">
+        <b>AFRICA</b><b>EUROPE</b><b>ASIA</b><b>MIDDLE EAST</b><b>NORTH AMERICA</b>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="categories">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow dark"><span></span> LEARNING PORTFOLIO</div>
+          <h2>Find your area of <em>expertise.</em></h2>
+        </div>
+        <a class="text-link" href="#courses">View all categories →</a>
+      </div>
+
+      <div class="category-grid">
+        <a class="category-card featured" href="#courses">
+          <span class="icon">↗</span>
+          <div><h3>Leadership & Strategy</h3><p>Strategy, executive development, governance and influencing.</p></div>
+          <span class="arrow">→</span>
+        </a>
+        <a class="category-card" href="#courses">
+          <span class="icon">AI</span>
+          <div><h3>AI, Data & Technology</h3><p>Artificial intelligence, analytics, digital transformation and cybersecurity.</p></div>
+          <span class="arrow">→</span>
+        </a>
+        <a class="category-card" href="#courses">
+          <span class="icon">HR</span>
+          <div><h3>People & HR</h3><p>Talent, learning, behavioural skills and personal effectiveness.</p></div>
+          <span class="arrow">→</span>
+        </a>
+        <a class="category-card" href="#courses">
+          <span class="icon">OPS</span>
+          <div><h3>Operations & Quality</h3><p>Operational excellence, quality, auditing and process improvement.</p></div>
+          <span class="arrow">→</span>
+        </a>
+        <a class="category-card" href="#courses">
+          <span class="icon">SALES</span>
+          <div><h3>Sales & Communication</h3><p>Sales, marketing, customer service and corporate communication.</p></div>
+          <span class="arrow">→</span>
+        </a>
+        <a class="category-card" href="#courses">
+          <span class="icon">ENG</span>
+          <div><h3>Engineering & Technical</h3><p>Engineering, maintenance, oil & gas and process control.</p></div>
+          <span class="arrow">→</span>
+        </a>
+        <a class="category-card" href="#courses">
+          <span class="icon">HSE</span>
+          <div><h3>HSE & Security</h3><p>Health, safety, emergency, security and sustainability.</p></div>
+          <span class="arrow">→</span>
+        </a>
+        <a class="category-card" href="#courses">
+          <span class="icon">PRO</span>
+          <div><h3>Professional Certificates</h3><p>Recognised pathways to strengthen your professional credentials.</p></div>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="finder" id="find-training">
+    <div class="container finder-inner">
+      <div>
+        <div class="eyebrow"><span></span> COURSE FINDER</div>
+        <h2>Not sure where to start?</h2>
+        <p>Tell us what you are looking for and we’ll help you identify the right training path.</p>
+      </div>
+      <form class="finder-form" onsubmit="handleFinder(event)">
+        <select id="finderCategory">
+          <option value="">Select a category</option>
+          <option>Leadership & Strategy</option>
+          <option>AI & Technology</option>
+          <option>Finance</option>
+          <option>Project Management</option>
+          <option>Human Resources</option>
+          <option>Engineering & Technical</option>
+        </select>
+        <select>
+          <option>Select preferred format</option>
+          <option>Classroom</option>
+          <option>Online</option>
+          <option>In-House</option>
+        </select>
+        <button class="btn btn-light" type="submit">Find Courses →</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section courses-section" id="courses">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow dark"><span></span> FEATURED PROGRAMMES</div>
+          <h2>Training built for <em>real-world impact.</em></h2>
+        </div>
+        <a class="text-link" href="#courses">View all courses →</a>
+      </div>
+
+      <div class="course-grid" id="courseGrid">
+        <article class="course-card" data-title="Artificial Intelligence Driven Talent Management">
+          <div class="course-image image-ai"><span>AI</span><small>NEW</small></div>
+          <div class="course-body">
+            <div class="course-meta"><span>09–13 NOV 2026</span><span>London</span></div>
+            <h3>Artificial Intelligence Driven Talent Management</h3>
+            <p>Learn how AI can reshape workforce planning, talent decisions and HR strategy.</p>
+            <a href="#contact">View programme <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="course-card" data-title="Strategic Planning Competitive Analysis Supply Chain">
+          <div class="course-image image-supply"><span>STRATEGY</span></div>
+          <div class="course-body">
+            <div class="course-meta"><span>12–16 OCT 2026</span><span>London</span></div>
+            <h3>Strategic Planning & Competitive Analysis for Supply Chain</h3>
+            <p>Build practical strategic thinking for complex supply chain environments.</p>
+            <a href="#contact">View programme <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="course-card" data-title="Certified Logistics Professional">
+          <div class="course-image image-logistics"><span>LOGISTICS</span></div>
+          <div class="course-body">
+            <div class="course-meta"><span>12–16 OCT 2026</span><span>London</span></div>
+            <h3>Certified Logistics Professional</h3>
+            <p>Strengthen logistics knowledge, planning capability and operational decision-making.</p>
+            <a href="#contact">View programme <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="course-card" data-title="Process Safety Management">
+          <div class="course-image image-safety"><span>HSE</span></div>
+          <div class="course-body">
+            <div class="course-meta"><span>02–06 NOV 2026</span><span>Nairobi</span></div>
+            <h3>Process Safety Management</h3>
+            <p>Develop stronger process safety systems, risk controls and operational practices.</p>
+            <a href="#contact">View programme <span>→</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="formats section">
+    <div class="container">
+      <div class="section-head centered">
+        <div>
+          <div class="eyebrow dark"><span></span> FLEXIBLE LEARNING</div>
+          <h2>Choose how you want to <em>learn.</em></h2>
+          <p>Flexible training formats for individuals and organisations.</p>
+        </div>
+      </div>
+
+      <div class="format-grid">
+        <div class="format-card">
+          <div class="format-number">01</div>
+          <h3>Classroom Training</h3>
+          <p>Interactive face-to-face learning delivered in professional venues around the world.</p>
+          <a href="#venues">Explore venues →</a>
+        </div>
+        <div class="format-card active">
+          <div class="format-number">02</div>
+          <h3>Online Training</h3>
+          <p>Join instructor-led programmes remotely with a flexible digital learning experience.</p>
+          <a href="#courses">Explore online courses →</a>
+        </div>
+        <div class="format-card">
+          <div class="format-number">03</div>
+          <h3>In-House Solutions</h3>
+          <p>Customised programmes aligned with your organisation’s goals, people and challenges.</p>
+          <a href="#contact">Request a solution →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="world-section" id="venues">
+    <div class="container world-grid">
+      <div class="world-copy">
+        <div class="eyebrow"><span></span> GLOBAL REACH</div>
+        <h2>Learn wherever your business <em>takes you.</em></h2>
+        <p>Our international training network gives professionals access to learning opportunities across major business destinations in Africa, Europe, Asia, the Middle East and North America.</p>
+        <div class="location-tags">
+          <span>London</span><span>Dubai</span><span>Paris</span><span>Singapore</span>
+          <span>Nairobi</span><span>Cape Town</span><span>Pretoria</span><span>New York</span>
+        </div>
+        <a class="btn btn-primary" href="#venues">Explore global venues →</a>
+      </div>
+      <div class="world-map">
+        <div class="map-ring r1"></div><div class="map-ring r2"></div><div class="map-ring r3"></div>
+        <div class="map-point p1">London</div>
+        <div class="map-point p2">Dubai</div>
+        <div class="map-point p3">Singapore</div>
+        <div class="map-point p4">Cape Town</div>
+        <div class="map-point p5">New York</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cert-section section" id="certificates">
+    <div class="container cert-grid">
+      <div class="cert-copy">
+        <div class="eyebrow dark"><span></span> PROFESSIONAL CREDENTIALS</div>
+        <h2>Turn learning into <em>recognised achievement.</em></h2>
+        <p>Selected programmes can support professional development through recognised certification and continuing education pathways.</p>
+        <a class="text-link" href="#contact">Explore certification options →</a>
+      </div>
+      <div class="cert-logos">
+        <div>CPD</div><div>ILM</div><div>PMI</div><div>HRCI</div><div>ISO<br><small>9001</small></div><div>NASBA</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section section" id="about">
+    <div class="container about-grid">
+      <div class="about-image">
+        <div class="about-badge"><strong>30+</strong><span>Years of professional<br>development</span></div>
+      </div>
+      <div class="about-copy">
+        <div class="eyebrow dark"><span></span> ABOUT GLOMACS</div>
+        <h2>Learning that connects <em>knowledge to action.</em></h2>
+        <p>GLOMACS provides professional development training for individuals and organisations seeking practical skills, stronger capability and measurable business impact.</p>
+        <p>Its portfolio spans leadership, business, finance, technology, engineering, safety, sustainability and other professional disciplines.</p>
+        <div class="about-stats">
+          <div><strong>1M+</strong><span>Professionals trained</span></div>
+          <div><strong>60+</strong><span>Subject areas</span></div>
+          <div><strong>50+</strong><span>Global cities</span></div>
+        </div>
+        <a class="btn btn-dark" href="#contact">Learn more about us →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="container cta-inner">
+      <div>
+        <div class="eyebrow"><span></span> READY TO START?</div>
+        <h2>Invest in skills that create <em>momentum.</em></h2>
+        <p>Find a programme for yourself or request a tailored solution for your organisation.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-light" href="#courses">Browse Courses →</a>
+        <a class="btn btn-outline-light" href="mailto:info@glomacs.com">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="logo light" href="#"><span class="logo-mark">G</span><span>GLOMACS</span></a>
+      <p>Professional training and development for ambitious people and organisations worldwide.</p>
+    </div>
+    <div><h4>Training</h4><a href="#courses">All Courses</a><a href="#categories">Categories</a><a href="#venues">Venues</a><a href="#certificates">Certificates</a></div>
+    <div><h4>Solutions</h4><a href="#courses">Online Training</a><a href="#courses">Classroom Training</a><a href="#contact">In-House Training</a><a href="#find-training">Find Training</a></div>
+    <div><h4>Company</h4><a href="#about">About Us</a><a href="#contact">Contact</a><a href="#contact">Careers</a><a href="#contact">Resources</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© 2026 GLOMACS. All rights reserved.</span><span>Professional Development • Global Learning</span></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
