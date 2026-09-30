@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GLOMACS | Professional Training & Development</title>
-  <meta name="description" content="Professional training courses, certifications and corporate learning solutions worldwide.">
+  <title>GLOMACS | Professional Training Courses & Certifications</title>
+  <meta name="description" content="Explore 1000+ professional training courses. Accelerate innovation with industry-leading training. Global venues, flexible formats, recognised certifications.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -266,7 +266,7 @@
       cursor: pointer;
     }
 
-    /* ----- HERO (redesigned with image + floating stat card) ----- */
+    /* ----- HERO ----- */
     .hero {
       position: relative;
       background: var(--navy);
@@ -408,7 +408,7 @@
       font-weight: 600;
     }
 
-    /* ----- SEARCH BAR (refined) ----- */
+    /* ----- SEARCH BAR ----- */
     .search-section {
       background: #fff;
       padding: 0 0 50px;
@@ -468,7 +468,7 @@
       flex-shrink: 0;
     }
 
-    /* ----- CATEGORY SECTION (chips / cards) ----- */
+    /* ----- SECTION STYLES ----- */
     .section {
       padding: 90px 0;
     }
@@ -489,6 +489,7 @@
       max-width: 700px;
     }
 
+    /* ----- CATEGORIES ----- */
     .category-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -545,7 +546,7 @@
       transform: translateX(6px);
     }
 
-    /* ----- FEATURED COURSES (with real images) ----- */
+    /* ----- COURSES ----- */
     .courses-section {
       background: var(--bg);
     }
@@ -664,7 +665,7 @@
       margin-top: auto;
     }
 
-    /* ----- WHY GLOMACS (new section) ----- */
+    /* ----- WHY GLOMACS ----- */
     .why-section {
       background: #fff;
     }
@@ -711,7 +712,7 @@
       line-height: 1.5;
     }
 
-    /* ----- INSTRUCTORS (new) ----- */
+    /* ----- INSTRUCTORS ----- */
     .instructors-section {
       background: var(--bg);
     }
@@ -771,7 +772,7 @@
       line-height: 1.5;
     }
 
-    /* ----- GLOBAL LOCATIONS (improved map) ----- */
+    /* ----- GLOBAL LOCATIONS ----- */
     .world-section {
       background: var(--navy);
       color: #fff;
@@ -929,7 +930,7 @@
       box-shadow: var(--shadow-sm);
     }
 
-    /* ----- CORPORATE TRAINING (new) ----- */
+    /* ----- CORPORATE TRAINING ----- */
     .corporate-section {
       background: #fff;
       padding: 80px 0;
@@ -979,7 +980,7 @@
       font-weight: 700;
     }
 
-    /* ----- FINAL CTA ----- */
+    /* ----- CTA ----- */
     .cta-section {
       background: linear-gradient(120deg, #0b2340, #0b2d51);
       padding: 80px 0;
@@ -1064,6 +1065,55 @@
       display: flex;
       justify-content: space-between;
       font-size: 0.75rem;
+    }
+
+    /* ----- CHAT WIDGET (simplified) ----- */
+    .chat-widget {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #fff;
+      border-radius: 50px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      cursor: pointer;
+      z-index: 999;
+      transition: transform 0.2s;
+      border: 1px solid var(--line);
+    }
+
+    .chat-widget:hover {
+      transform: scale(1.02);
+    }
+
+    .chat-widget .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .chat-widget .info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-widget .info strong {
+      font-size: 0.85rem;
+      color: var(--navy);
+    }
+
+    .chat-widget .info span {
+      font-size: 0.7rem;
+      color: var(--muted);
     }
 
     /* ----- RESPONSIVE ----- */
@@ -1210,6 +1260,11 @@
       .corporate-features {
         grid-template-columns: 1fr;
       }
+      .chat-widget {
+        bottom: 16px;
+        right: 16px;
+        padding: 10px 16px;
+      }
     }
   </style>
 </head>
@@ -1249,13 +1304,13 @@
   </header>
 
   <main>
-    <!-- HERO (redesigned with image + floating stat card) -->
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
           <div class="eyebrow"><span></span> GLOBAL PROFESSIONAL DEVELOPMENT</div>
-          <h1>Professional Training That Creates <em>Real-World Impact.</em></h1>
-          <p>Build the skills that move your career forward with practical, internationally recognised training programmes.</p>
+          <h1>Explore 1000+ Training Courses for <em>Individuals and Organisations.</em></h1>
+          <p>Accelerate innovation in your organisation with industry-leading training courses. We train growth-driven individuals and organisations worldwide, helping them achieve measurable impact.</p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#courses">Explore Courses →</a>
@@ -1265,7 +1320,7 @@
           <div class="hero-stats">
             <div class="stat"><strong>1,000+</strong><span>Training Courses</span></div>
             <div class="stat"><strong>50+</strong><span>Global Locations</span></div>
-            <div class="stat"><strong>30+</strong><span>Years Experience</span></div>
+            <div class="stat"><strong>1M+</strong><span>Trained Professionals</span></div>
           </div>
         </div>
 
@@ -1287,7 +1342,7 @@
       </div>
     </section>
 
-    <!-- SEARCH BAR (refined) -->
+    <!-- SEARCH BAR -->
     <section class="search-section" id="find-training">
       <div class="container">
         <div class="search-container">
@@ -1340,7 +1395,7 @@
         <div class="section-head">
           <div>
             <div class="eyebrow dark"><span></span> LEARNING PORTFOLIO</div>
-            <h2>Popular Training <em>Categories</em></h2>
+            <h2>Take the first step towards <em>Your Professional Goals Today.</em></h2>
           </div>
           <a class="text-link" href="#courses">View all categories →</a>
         </div>
@@ -1414,13 +1469,13 @@
       </div>
     </section>
 
-    <!-- FEATURED COURSES (with real images) -->
+    <!-- FEATURED COURSES -->
     <section class="section courses-section" id="courses">
       <div class="container">
         <div class="section-head">
           <div>
             <div class="eyebrow dark"><span></span> FEATURED PROGRAMMES</div>
-            <h2>Training built for <em>real-world impact.</em></h2>
+            <h2>Explore our <em>featured training courses.</em></h2>
           </div>
           <a class="text-link" href="#courses">View all courses →</a>
         </div>
@@ -1499,7 +1554,7 @@
       </div>
     </section>
 
-    <!-- WHY GLOMACS (new section) -->
+    <!-- WHY GLOMACS -->
     <section class="section why-section" id="about">
       <div class="container">
         <div class="section-head">
@@ -1539,7 +1594,7 @@
       </div>
     </section>
 
-    <!-- MEET OUR INSTRUCTORS (new) -->
+    <!-- INSTRUCTORS -->
     <section class="section instructors-section">
       <div class="container">
         <div class="section-head">
@@ -1587,16 +1642,17 @@
       </div>
     </section>
 
-    <!-- GLOBAL LOCATIONS (improved map) -->
+    <!-- GLOBAL LOCATIONS -->
     <section class="world-section" id="venues">
       <div class="container world-grid">
         <div class="world-copy">
           <div class="eyebrow"><span></span> GLOBAL REACH</div>
-          <h2>Learn wherever your business <em>takes you.</em></h2>
-          <p>Our international training network gives professionals access to learning opportunities across major business destinations.</p>
+          <h2>Choose your Venue, Start your <em>Training Journey Today.</em></h2>
+          <p>GLOMACS is one of the world's leading providers of professional development training courses, operating across 50+ cities worldwide. From the Middle East, Asia, Africa, North America, and Europe, our unrivalled global reach ensures our training courses are always within reach.</p>
           <div class="location-tags">
-            <span>London</span><span>Dubai</span><span>Paris</span><span>Singapore</span>
-            <span>Nairobi</span><span>Cape Town</span><span>Johannesburg</span><span>New York</span>
+            <span>London</span><span>Dubai</span><span>Amsterdam</span><span>Paris</span>
+            <span>Barcelona</span><span>Tokyo</span><span>Singapore</span><span>Houston</span>
+            <span>New York</span><span>Nairobi</span><span>Cape Town</span>
           </div>
           <a class="btn btn-primary" href="#contact">Explore global venues →</a>
         </div>
@@ -1608,6 +1664,7 @@
           <div class="map-dot" style="top: 80%; left: 38%;" data-label="Cape Town"></div>
           <div class="map-dot" style="top: 35%; left: 68%;" data-label="Paris"></div>
           <div class="map-dot" style="top: 38%; left: 22%;" data-label="New York"></div>
+          <div class="map-dot" style="top: 52%; left: 70%;" data-label="Amsterdam"></div>
         </div>
       </div>
     </section>
@@ -1617,8 +1674,8 @@
       <div class="container cert-grid">
         <div class="cert-copy">
           <div class="eyebrow dark"><span></span> PROFESSIONAL CREDENTIALS</div>
-          <h2>Turn learning into <em>recognised achievement.</em></h2>
-          <p>Selected programmes can support professional development through recognised certification and continuing education pathways.</p>
+          <h2>Obtain Globally Recognised <em>Professional Certificates</em></h2>
+          <p>Join a growing community of certified professionals. At GLOMACS, we are partnered with nine internationally recognised certification bodies — including CPD, ILM, PMI, and HRCI — to offer professional certifications alongside our training courses. We are also proud to hold ISO 9001:2015 and ISO 29993:2017 certification.</p>
           <a class="text-link" href="#contact">Explore certification options →</a>
         </div>
         <div class="cert-logos">
@@ -1632,14 +1689,14 @@
       </div>
     </section>
 
-    <!-- CORPORATE TRAINING (new) -->
+    <!-- CORPORATE TRAINING -->
     <section class="corporate-section">
       <div class="container">
         <div class="corporate-inner">
           <div class="corporate-copy">
             <div class="eyebrow"><span></span> FOR ORGANISATIONS</div>
-            <h2>Training for <em>organisations.</em></h2>
-            <p>Build capability across your entire team with customised programmes designed around your organisation's objectives.</p>
+            <h2>Partner with the World's Most Innovative <em>Training Provider</em></h2>
+            <p>Trusted by more than one million individuals and organisations throughout our 30+ year history, GLOMACS is proud to be recognised as one of the world's most innovative providers of professional training courses.</p>
             <a class="btn btn-primary" href="#contact">Talk to a Training Consultant →</a>
           </div>
           <ul class="corporate-features">
@@ -1657,8 +1714,8 @@
       <div class="container cta-inner">
         <div>
           <div class="eyebrow"><span></span> READY TO START?</div>
-          <h2>Your next level starts with the <em>right training.</em></h2>
-          <p>Find a course for yourself or speak to our team about a customised programme for your organisation.</p>
+          <h2>Explore our training courses, choose the format that <em>suits you best.</em></h2>
+          <p>We offer courses in a variety of flexible training formats, including Public Training Courses, In-House Training Solutions, and Online Training Courses.</p>
         </div>
         <div class="cta-actions">
           <a class="btn btn-primary" href="#courses">Explore Courses →</a>
@@ -1676,7 +1733,7 @@
           <span class="logo-mark">G</span>
           <span>GLOMACS</span>
         </a>
-        <p>Professional training and development for ambitious people and organisations worldwide.</p>
+        <p>Professional training and development for ambitious people and organisations worldwide. Trusted by over one million professionals.</p>
       </div>
       <div>
         <h4>Training</h4>
@@ -1705,6 +1762,15 @@
       <span>Professional Development • Global Learning</span>
     </div>
   </footer>
+
+  <!-- CHAT WIDGET (simplified) -->
+  <div class="chat-widget">
+    <div class="avatar">O</div>
+    <div class="info">
+      <strong>Olivia</strong>
+      <span>Typically replies within an hour</span>
+    </div>
+  </div>
 
   <script>
     // Mobile menu toggle
@@ -1747,7 +1813,6 @@
         const matchesQuery = !query || title.includes(query);
         const matchesCategory = !category || cardCategory === category;
         const matchesLocation = !location || cardLocation === location;
-        // Format matching is simplified — all courses are classroom for demo
         const matchesFormat = !format || format === 'Classroom';
 
         const visible = matchesQuery && matchesCategory && matchesLocation && matchesFormat;
@@ -1792,7 +1857,7 @@
       observer.observe(el);
     });
 
-    // Hero image and stats animation on load
+    // Hero image animation on load
     window.addEventListener('load', () => {
       document.querySelector('.hero-image-main')?.style.setProperty('opacity', '1');
     });
