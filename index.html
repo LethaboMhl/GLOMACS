@@ -836,79 +836,62 @@
       line-height: 1.5;
     }
 
-    /* ----- INSTRUCTORS ----- */
-    .instructors-section {
+    /* ----- PARTNERS (NEW SECTION) ----- */
+    .partners-section {
       background: var(--black-2);
+      padding: 90px 0;
     }
 
-    .instructor-grid {
+    .partners-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .partners-copy h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--white);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .partners-copy p {
+      color: var(--grey);
+      font-size: 1rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .partners-logos {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      gap: 12px;
     }
 
-    .instructor-card {
-      background: var(--black-3);
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--line);
+    .partner-logo {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 90px;
       transition: all 0.3s ease;
-      text-align: center;
-      padding-bottom: 24px;
+      border: 1px solid transparent;
     }
 
-    .instructor-card:hover {
-      transform: translateY(-5px);
+    .partner-logo:hover {
+      transform: translateY(-4px);
       box-shadow: var(--shadow-red);
-      border-color: rgba(224, 30, 30, 0.4);
+      border-color: var(--red);
     }
 
-    .instructor-card .photo {
-      height: 200px;
-      background: var(--black-4);
-      overflow: hidden;
-      margin-bottom: 16px;
-      position: relative;
-    }
-
-    .instructor-card .photo::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(10, 10, 10, 0.6), transparent 50%);
-    }
-
-    .instructor-card .photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.85;
-      transition: opacity 0.3s;
-    }
-
-    .instructor-card:hover .photo img {
-      opacity: 1;
-    }
-
-    .instructor-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 4px;
-    }
-
-    .instructor-card .specialty {
-      font-size: 0.8rem;
-      color: var(--red);
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .instructor-card .bio {
-      font-size: 0.8rem;
-      color: var(--grey);
-      padding: 0 18px;
-      line-height: 1.5;
+    .partner-logo img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      filter: grayscale(0%);
     }
 
     /* ----- WORLD ----- */
@@ -1312,8 +1295,9 @@
       .why-grid {
         grid-template-columns: repeat(3, 1fr);
       }
-      .instructor-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .partners-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
       }
       .world-grid {
         grid-template-columns: 1fr;
@@ -1399,8 +1383,8 @@
       .why-grid {
         grid-template-columns: 1fr 1fr;
       }
-      .instructor-grid {
-        grid-template-columns: 1fr;
+      .partners-logos {
+        grid-template-columns: repeat(2, 1fr);
       }
       .cert-logos {
         grid-template-columns: repeat(2, 1fr);
@@ -1437,6 +1421,9 @@
       .corporate-features {
         grid-template-columns: 1fr;
       }
+      .partners-logos {
+        grid-template-columns: 1fr 1fr;
+      }
     }
   </style>
 </head>
@@ -1468,7 +1455,7 @@
         <a href="#categories">Categories</a>
         <a href="#venues">Venues</a>
         <a href="#certificates">Certifications</a>
-        <a href="#about">About</a>
+        <a href="#partners">Partners</a>
         <a href="#contact">Contact</a>
         <a class="nav-cta" href="#find-training">Find Training</a>
       </div>
@@ -1766,49 +1753,61 @@
       </div>
     </section>
 
-    <!-- INSTRUCTORS -->
-    <section class="section instructors-section">
+    <!-- PARTNERS (NEW SECTION) -->
+    <section class="partners-section" id="partners">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow dark"><span></span> EXPERT TRAINERS</div>
-            <h2>Learn from experienced <em>practitioners.</em></h2>
+        <div class="partners-grid">
+          <div class="partners-copy">
+            <h2>Partner with the World's Most Innovative Training Provider</h2>
+            <p>Trusted by more than one million individuals and organisations throughout our 30+ year history, GLOMACS is proud to be recognised as one of the world's most innovative providers of professional training courses — driven by a continuous commitment to ground-breaking, industry-leading learning solutions.</p>
+            <p>Take the next step and partner with GLOMACS to transform yourself and your organisation through our internationally accredited training courses, forward-thinking subject areas, and globally recognised professional certifications.</p>
           </div>
-          <a class="text-link" href="#contact">Meet our trainers →</a>
-        </div>
-
-        <div class="instructor-grid">
-          <div class="instructor-card">
-            <div class="photo">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Sarah Mitchell">
+          <div class="partners-logos">
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/dragon-oil.png" alt="Dragon Oil">
             </div>
-            <h3>Dr. Sarah Mitchell</h3>
-            <div class="specialty">Leadership & Strategy</div>
-            <p class="bio">20+ years of executive coaching and strategic leadership development.</p>
-          </div>
-          <div class="instructor-card">
-            <div class="photo">
-              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="James Okonkwo">
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/sonangol.png" alt="Sonangol">
             </div>
-            <h3>James Okonkwo</h3>
-            <div class="specialty">AI & Technology</div>
-            <p class="bio">Former CTO with deep expertise in AI, data strategy and digital transformation.</p>
-          </div>
-          <div class="instructor-card">
-            <div class="photo">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Elena Rossi">
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/daleel.png" alt="Daleel Petroleum">
             </div>
-            <h3>Dr. Elena Rossi</h3>
-            <div class="specialty">Finance & Risk</div>
-            <p class="bio">International finance expert with 15 years of corporate training experience.</p>
-          </div>
-          <div class="instructor-card">
-            <div class="photo">
-              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Michael Chen">
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/satorp.png" alt="Satorp">
             </div>
-            <h3>Michael Chen</h3>
-            <div class="specialty">Engineering & HSE</div>
-            <p class="bio">Chartered engineer specialising in process safety and operational excellence.</p>
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/difc.png" alt="DIFC">
+            </div>
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/sami.png" alt="SAMI Advanced Electronics">
+            </div>
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/dept-energy.png" alt="Department of Energy">
+            </div>
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/pttep.png" alt="PTTEP">
+            </div>
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/bupa.png" alt="Bupa">
+            </div>
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/dept-culture.png" alt="Department of Culture and Tourism">
+            </div>
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/saudi-electricity.png" alt="Saudi Electricity Company">
+            </div>
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/chevron.png" alt="Chevron">
+            </div>
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/kuwait-fund.png" alt="Kuwait Fund">
+            </div>
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/dubai-police.png" alt="Dubai Police">
+            </div>
+            <div class="partner-logo">
+              <img src="https://glomacs.com/images/partners/instog.png" alt="instOG">
+            </div>
           </div>
         </div>
       </div>
@@ -2005,7 +2004,7 @@
       });
     }, observerOptions);
 
-    document.querySelectorAll('.category-card, .course-card, .why-card, .instructor-card, .cert-logos div').forEach(el => {
+    document.querySelectorAll('.category-card, .course-card, .why-card, .cert-logos div, .partner-logo').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(24px)';
       el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
