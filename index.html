@@ -233,11 +233,21 @@
     }
 
     /* ----- LOGO (image based) ----- */
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+   .logo {
+  display: flex;
+  flex-direction: column;   
+  align-items: flex-start;  
+  text-decoration: none;
+}
+
+.logo .tagline {
+  font-size: 11px;
+  color: #aaa;              
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;     
+  line-height: 1.2;
+}
 
     .logo-img {
       height: 42px;
@@ -1417,6 +1427,7 @@
         height: 30px;
       }
     }
+    
   </style>
 </head>
 <body>
@@ -1425,23 +1436,23 @@
   <header class="site-header" id="siteHeader">
 
     <nav class="navbar container">
-      <a class="logo" href="#">
-        <img class="logo-img" src="glomacs-black-background.jpg" alt="GLOMACS">
-        <span>Professional Training • Global Learning • Measurable Impact</span>
-      </a>
+  <a class="logo" href="#">
+    <img class="logo-img" src="glomacs-black-background.jpg" alt="GLOMACS">
+    <span class="tagline">Professional Training • Global Learning • Measurable Impact</span>
+  </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
 
-      <div class="nav-links" id="navLinks">
-        <a href="#courses">Courses</a>
-        <a href="#categories">Categories</a>
-        <a href="#venues">Venues</a>
-        <a href="#certificates">Certifications</a>
-        <a href="#partners">Partners</a>
-        <a href="#contact">Contact</a>
-        <a class="nav-cta" href="#find-training">Find Training</a>
-      </div>
-    </nav>
+  <div class="nav-links" id="navLinks">
+    <a href="#courses">Courses</a>
+    <a href="#categories">Categories</a>
+    <a href="#venues">Venues</a>
+    <a href="#certificates">Certifications</a>
+    <a href="#partners">Partners</a>
+    <a href="#contact">Contact</a>
+    <a class="nav-cta" href="#find-training">Find Training</a>
+  </div>
+</nav>
   </header>
 
   <main>
