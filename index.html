@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ----- RESET & VARIABLES ----- */
     * {
       margin: 0;
       padding: 0;
@@ -18,35 +17,29 @@
     }
 
     :root {
-      /* ---- BLACK LAYERS (matches logo's pure black) ---- */
-      --black: #000000;      /* Base — matches logo background exactly */
-      --black-2: #0A0A0A;    /* Sections */
-      --black-3: #141414;    /* Cards */
-      --black-4: #1E1E1E;    /* Deepest card layer */
+      --black: #000000;
+      --black-2: #0A0A0A;
+      --black-3: #141414;
+      --black-4: #1E1E1E;
 
-      /* ---- RED HIGHLIGHTS ---- */
       --red: #E01E1E;
       --red-deep: #8E1010;
       --red-bright: #FF2E2E;
       --red-glow: rgba(224, 30, 30, 0.35);
 
-      /* ---- TEXT ---- */
       --white: #FFFFFF;
       --off-white: #F5F5F5;
       --grey: #A0A0A0;
       --grey-dark: #6B6B6B;
 
-      /* ---- BORDERS ---- */
       --line: #222222;
       --line-light: #2E2E2E;
 
-      /* ---- SHADOWS ---- */
       --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.5);
       --shadow-md: 0 18px 40px rgba(0, 0, 0, 0.6);
       --shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.7);
       --shadow-red: 0 18px 50px rgba(224, 30, 30, 0.25);
 
-      /* ---- RADII ---- */
       --radius: 16px;
       --radius-sm: 10px;
     }
@@ -82,7 +75,6 @@
       margin: 0 auto;
     }
 
-    /* ----- UTILITY ----- */
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -129,7 +121,6 @@
     }
     .text-link:hover { gap: 12px; color: var(--red-bright); }
 
-    /* ----- HEADER ----- */
     .site-header {
       position: sticky;
       top: 0;
@@ -153,7 +144,6 @@
       gap: 20px;
     }
 
-    /* ----- LOGO ----- */
     .logo {
       display: flex;
       flex-direction: column;
@@ -224,7 +214,6 @@
       line-height: 1;
     }
 
-    /* ----- HERO ----- */
     .hero {
       position: relative;
       background: var(--black);
@@ -359,7 +348,6 @@
       font-weight: 600;
     }
 
-    /* ----- SEARCH BAR ----- */
     .search-section {
       background: var(--black);
       padding: 0 0 50px;
@@ -416,7 +404,6 @@
     .search-container .search-field input::placeholder { color: var(--grey-dark); }
     .search-container .btn { height: 50px; padding: 0 32px; flex-shrink: 0; }
 
-    /* ----- SECTIONS ----- */
     .section { padding: 90px 0; background: var(--black); }
     .section-head {
       display: flex;
@@ -434,7 +421,6 @@
     }
     .section-head h2 em { font-style: normal; color: var(--red); }
 
-    /* ----- CATEGORIES ----- */
     .category-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -484,7 +470,6 @@
     .category-card .arrow { color: var(--red); font-size: 1.2rem; transition: transform 0.3s; }
     .category-card:hover .arrow { transform: translateX(6px); }
 
-    /* ----- COURSES ----- */
     .courses-section { background: var(--black-2); }
     .course-grid {
       display: grid;
@@ -585,7 +570,6 @@
     }
     .course-body .text-link { font-size: 0.88rem; margin-top: auto; }
 
-    /* ----- WHY ----- */
     .why-section { background: var(--black); }
     .why-grid {
       display: grid;
@@ -618,7 +602,6 @@
     .why-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
     .why-card p { font-size: 0.82rem; color: var(--grey); line-height: 1.5; }
 
-    /* ----- PARTNERS ----- */
     .partners-section { background: var(--black-2); padding: 90px 0; }
     .partners-grid {
       display: grid;
@@ -661,7 +644,6 @@
       object-fit: contain;
     }
 
-    /* ----- WORLD ----- */
     .world-section {
       background: var(--black);
       color: #fff;
@@ -760,7 +742,6 @@
       100% { box-shadow: 0 0 0 0 rgba(224, 30, 30, 0); }
     }
 
-    /* ----- CERTIFICATIONS ----- */
     .cert-section { background: var(--black-2); }
     .cert-grid {
       display: grid;
@@ -794,7 +775,6 @@
       background: var(--black-4);
     }
 
-    /* ----- CORPORATE ----- */
     .corporate-section { background: var(--black); padding: 80px 0; }
     .corporate-inner {
       background: linear-gradient(135deg, var(--black-2) 0%, var(--black-3) 100%);
@@ -845,7 +825,6 @@
       font-size: 1.1rem;
     }
 
-    /* ----- CTA ----- */
     .cta-section {
       background: linear-gradient(120deg, var(--black) 0%, var(--red-deep) 100%);
       padding: 80px 0;
@@ -882,7 +861,6 @@
     .cta-inner p { color: rgba(255, 255, 255, 0.75); margin-top: 12px; font-size: 0.95rem; }
     .cta-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
-    /* ----- FOOTER ----- */
     .footer {
       background: var(--black);
       color: var(--grey);
@@ -923,9 +901,6 @@
       flex-wrap: wrap;
     }
 
-    /* ================================================================
-       RESPONSIVE — LARGE TABLETS (max 1100px)
-       ================================================================ */
     @media (max-width: 1100px) {
       .hero-grid { grid-template-columns: 1fr; gap: 50px; }
       .hero-visual { max-width: 640px; margin: 0 auto; width: 100%; }
@@ -945,9 +920,6 @@
       .corporate-inner { grid-template-columns: 1fr; padding: 45px 36px; gap: 40px; }
     }
 
-    /* ================================================================
-       RESPONSIVE — TABLETS & LARGE PHONES (max 900px)
-       ================================================================ */
     @media (max-width: 900px) {
       .menu-toggle { display: block; }
       .nav-links {
@@ -980,9 +952,6 @@
       }
     }
 
-    /* ================================================================
-       RESPONSIVE — MOBILE PHONES (max 768px)
-       ================================================================ */
     @media (max-width: 768px) {
       .container { width: calc(100% - 32px); }
 
@@ -1058,9 +1027,6 @@
       .footer-bottom { flex-direction: column; gap: 6px; margin-top: 36px; }
     }
 
-    /* ================================================================
-       RESPONSIVE — SMALL PHONES (max 480px)
-       ================================================================ */
     @media (max-width: 480px) {
       .container { width: calc(100% - 24px); }
 
@@ -1101,9 +1067,6 @@
       .footer h4 { margin-bottom: 12px; }
     }
 
-    /* ================================================================
-       RESPONSIVE — VERY SMALL PHONES (max 360px)
-       ================================================================ */
     @media (max-width: 360px) {
       .hero-copy h1 { font-size: 1.55rem; }
       .logo-img { height: 24px; }
@@ -1116,7 +1079,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="site-header" id="siteHeader">
     <nav class="navbar container">
       <a class="logo" href="#">
@@ -1139,7 +1101,6 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -1177,7 +1138,6 @@
       </div>
     </section>
 
-    <!-- SEARCH -->
     <section class="search-section" id="find-training">
       <div class="container">
         <div class="search-container">
@@ -1224,7 +1184,6 @@
       </div>
     </section>
 
-    <!-- CATEGORIES -->
     <section class="section" id="categories">
       <div class="container">
         <div class="section-head">
@@ -1304,7 +1263,6 @@
       </div>
     </section>
 
-    <!-- COURSES -->
     <section class="section courses-section" id="courses">
       <div class="container">
         <div class="section-head">
@@ -1389,7 +1347,6 @@
       </div>
     </section>
 
-    <!-- WHY -->
     <section class="section why-section" id="about">
       <div class="container">
         <div class="section-head">
@@ -1429,7 +1386,6 @@
       </div>
     </section>
 
-    <!-- PARTNERS -->
     <section class="partners-section" id="partners">
       <div class="container">
         <div class="partners-grid">
@@ -1459,7 +1415,6 @@
       </div>
     </section>
 
-    <!-- WORLD -->
     <section class="world-section" id="venues">
       <div class="container world-grid">
         <div class="world-copy">
@@ -1484,7 +1439,6 @@
       </div>
     </section>
 
-    <!-- CERTIFICATIONS -->
     <section class="section cert-section" id="certificates">
       <div class="container cert-grid">
         <div class="cert-copy">
@@ -1504,7 +1458,6 @@
       </div>
     </section>
 
-    <!-- CORPORATE -->
     <section class="corporate-section">
       <div class="container">
         <div class="corporate-inner">
@@ -1524,7 +1477,6 @@
       </div>
     </section>
 
-    <!-- CTA -->
     <section class="cta-section" id="contact">
       <div class="container cta-inner">
         <div>
@@ -1540,7 +1492,6 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
